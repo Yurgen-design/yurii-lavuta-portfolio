@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UX Engineer Portfolio | Yurii Lavuta</title>
+<link href="assets/css/styles.css" rel="stylesheet"/>
+<style>
+        html {
+            scroll-behavior: auto;
+            scroll-padding-top: 96px;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .swiss-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+        }
+
+        :root {
+            --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+            --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+            --ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+
+        * {
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .smooth {
+            transition-timing-function: var(--ease-out-expo) !important;
+        }
+
+        .mobile-menu {
+            max-height: 0;
+            opacity: 0;
+            transform: translateY(-12px);
+            overflow: hidden;
+            pointer-events: none;
+            transition:
+                max-height 680ms var(--ease-out-expo),
+                opacity 360ms var(--ease-out-circ),
+                transform 680ms var(--ease-out-expo);
+            will-change: max-height, opacity, transform;
+        }
+
+        .menu-button {
+            background: transparent;
+            border: none;
+            border-radius: 9999px;
+            transition: transform 520ms var(--ease-out-expo);
+        }
+
+        .menu-icon {
+            display: inline-block;
+            transition: transform 520ms var(--ease-out-expo);
+            will-change: transform;
+        }
+
+        .menu-button.is-open .menu-icon {
+            transform: rotate(180deg);
+        }
+
+        .mobile-menu.is-open {
+            max-height: 520px;
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: 12px;
+            top: 12px;
+            padding: 10px 14px;
+            background: #ffffff;
+            color: #101622;
+            border: 2px solid #135bec;
+            border-radius: 12px;
+            transform: translateY(-160%);
+            transition: transform 160ms ease;
+            z-index: 1000;
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid #135bec;
+            outline-offset: 3px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            filter: blur(8px);
+            transition:
+                opacity 520ms var(--ease-out-quart),
+                transform 880ms var(--ease-out-expo),
+                filter 880ms var(--ease-out-expo);
+            will-change: opacity, transform, filter;
+        }
+
+        .reveal.in-view {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+
+        .parallax-slow {
+            will-change: transform;
+            transition: transform 0.1s linear;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .mobile-menu {
+                transition: none !important;
+            }
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+                filter: none !important;
+            }
+        }
+    </style>
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="76540eaf-4e45-4862-b554-06d0047e3671" data-blockingmode="auto" type="text/javascript"></script>
+</head>
+<body class="bg-background text-charcoal font-display transition-colors duration-300">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<nav class="fixed top-0 w-full z-50 border-b border-border-light bg-background/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<a class="flex items-center space-x-2" href="index.html">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center font-bold text-white">YL</div>
+<span class="font-bold tracking-tighter text-xl uppercase hidden sm:block text-charcoal">Yurii Lavuta</span>
+</a>
+<div class="flex items-center space-x-8 text-sm font-medium uppercase tracking-widest text-charcoal hidden md:flex">
+<a class="hover:text-primary transition-colors smooth" href="index.html">Main</a>
+<a class="hover:text-primary transition-colors smooth" href="#work">Portfolio</a>
+<a class="hover:text-primary transition-colors smooth" href="About.html">About</a>
+<a class="hover:text-primary transition-colors smooth" href="#contact">Contact</a>
+</div>
+<button id="mobile-menu-button" class="menu-button md:hidden flex items-center justify-center w-12 h-12 hover:bg-gray-50 transition-colors" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+<span class="material-icons menu-icon text-charcoal text-3xl">menu</span>
+</button>
+</div>
+<div id="mobile-menu" class="mobile-menu md:hidden absolute top-20 left-0 right-0 bg-background border-b border-border-light">
+<div class="max-w-7xl mx-auto px-6 py-6 space-y-4">
+<a class="block py-3 text-sm font-medium uppercase tracking-widest text-charcoal hover:text-primary transition-colors border-b border-border-light" href="index.html">Main</a>
+<a class="block py-3 text-sm font-medium uppercase tracking-widest text-charcoal hover:text-primary transition-colors border-b border-border-light" href="#work">Portfolio</a>
+<a class="block py-3 text-sm font-medium uppercase tracking-widest text-charcoal hover:text-primary transition-colors border-b border-border-light" href="About.html">About</a>
+<a class="block py-3 text-sm font-medium uppercase tracking-widest text-charcoal hover:text-primary transition-colors border-b border-border-light" href="#contact">Contact</a>
+</div>
+</div>
+</nav>
+<main class="pt-20" id="main-content" tabindex="-1">
+<section class="relative min-h-[80vh] flex flex-col justify-center px-6 reveal">
+<div class="max-w-7xl mx-auto w-full py-20">
+<h1 class="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9] uppercase mb-10 text-charcoal" style="color:#101622">
+                    UI/UX  <span class="text-primary" style="color:#135bec">DESIGNER</span> <br/>
+                    and <br/>
+                    Design  <span class="text-primary" style="color:#135bec">ENGINEER</span>
+                </h1>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+<p class="md:col-span-6 text-xl text-text-muted font-light leading-relaxed">
+                        Bridging the gap between design and development with precision and AI-enhanced workflows. Creating digital experiences that are technically sound and visually compelling.
+                    </p>
+<div class="md:col-span-6 flex flex-wrap gap-4 md:justify-end">
+<a class="px-8 py-4 bg-primary text-white font-bold rounded-lg hover:brightness-110 transition-all uppercase tracking-widest text-sm" href="#work">
+                            View Selected Work
+                        </a>
+<a class="px-8 py-4 border border-border-light bg-white text-charcoal font-bold rounded-lg hover:bg-gray-50 transition-all uppercase tracking-widest text-sm" href="#contact">
+                            Contact Me
+                        </a>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 border-y border-border-light bg-gray-50 reveal" id="Tech Stack">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-wrap items-center justify-between gap-8">
+<div class="flex flex-wrap gap-3 items-center">
+<span class="text-xs font-bold text-primary uppercase tracking-[0.3em] mr-4">Tech Stack</span>
+<div class="px-4 py-2 rounded border border-border-light text-xs font-mono uppercase bg-white text-charcoal font-medium">HTML/CSS/JS Basics</div>
+<div class="px-4 py-2 rounded border border-border-light text-xs font-mono uppercase bg-white text-charcoal font-medium">Responsive Design</div>
+<div class="px-4 py-2 rounded border border-border-light text-xs font-mono uppercase bg-white text-charcoal font-medium">SaaS</div>
+<div class="px-4 py-2 rounded border border-border-light text-xs font-mono uppercase bg-white text-charcoal font-medium">Framer</div>
+<div class="px-4 py-2 rounded border border-border-light text-xs font-mono uppercase bg-white text-charcoal font-medium">Webflow</div>
+<div class="px-4 py-2 rounded border border-border-light text-xs font-mono uppercase bg-white text-charcoal font-medium">Figma</div>
+<div class="px-4 py-2 rounded border border-border-light text-xs font-mono uppercase bg-white text-charcoal font-medium">Axure RP</div>
+<div class="px-4 py-2 rounded border border-border-light text-xs font-mono uppercase bg-white text-charcoal font-medium">WCAG</div>
+<div class="px-4 py-2 rounded border border-border-light text-xs font-mono uppercase bg-white text-charcoal font-medium">GDPR</div>
+<div class="px-4 py-2 rounded border border-border-light text-xs font-mono uppercase bg-white text-charcoal font-medium">UX Research</div>
+<div class="px-4 py-2 rounded border border-border-light text-xs font-mono uppercase bg-white text-charcoal font-medium">Prototyping & Testing</div>
+<div class="px-4 py-2 rounded border border-border-light text-xs font-mono uppercase bg-white text-charcoal font-medium">No-Code Engineering</div>
+<div class="px-4 py-2 rounded border border-border-light text-xs font-mono uppercase bg-white text-charcoal font-medium">Video Editing</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 px-6 reveal" id="work">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+<div>
+<h2 class="text-xs font-bold text-primary uppercase tracking-[0.3em] mb-4">Portfolio</h2>
+<h3 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-charcoal" style="color:#101622">Selected Work</h3>
+</div>
+<p class="text-text-muted max-w-sm text-sm">A curation of projects where design thinking meets engineering precision.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-stretch" data-stagger>
+<a class="md:col-span-3 group relative bg-card-light rounded-xl overflow-hidden border border-border-light transition-all duration-500 shadow-sm hover:shadow-md reveal block" href="project Claro.html">
+<div class="overflow-hidden" style="height: 340px;">
+<img alt="SaaS Dashboard" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern minimalist SaaS dashboard interface with data visualizations" src="ClaroAds/Claro_vireframes.webp"/>
+</div>
+<div class="pt-6 px-6 pb-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="text-2xl font-bold mb-2 uppercase tracking-tight text-charcoal" style="color:#101622">SaaS AdTech platform</h4>
+<div class="flex gap-2">
+<span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">UIUX Design</span>
+<span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">UX Research</span>
+<span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">UX Writing</span>
+<span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">SaaS</span>
+</div>
+</div>
+<span class="w-12 h-12 rounded-full border border-border-light flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all bg-white">
+<span class="material-icons text-sm text-charcoal group-hover:text-white transition-colors transition-transform duration-300 ease-out transform-gpu rotate-0 group-hover:-rotate-45">east</span>
+</span>
+</div>
+<div class="mt-4 pt-4 pb-2 border-t border-border-light">
+<p class="text-xs text-text-muted font-mono uppercase mb-1">Decision Narrative</p>
+<p class="text-sm text-slate-600 italic">"A global SaaS AdTech platform and affiliate network designed to connect advertisers with premium traffic sources."</p>
+</div>
+</div>
+</a>
+<a class="md:col-span-2 group relative bg-card-light rounded-xl overflow-hidden border border-border-light transition-all duration-500 shadow-sm hover:shadow-md reveal block" href="project Sebastian.html">
+<div class="overflow-hidden" style="height: 340px;">
+<img alt="Brand Identity" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern Video Creator Portfolio" src="Sebastian/Sebastian2.webp"/>
+</div>
+<div class="pt-6 px-6 pb-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="text-2xl font-bold mb-2 uppercase tracking-tight text-charcoal" style="color:#101622">Video Creator Portfolio</h4>
+<div class="flex gap-2">
+<span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">HTML/CSS/JS</span>
+<span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">UI Design</span>
+<span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">Web compliance</span>
+</div>
+</div>
+<span class="w-12 h-12 rounded-full border border-border-light flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all bg-white">
+<span class="material-icons text-sm text-charcoal group-hover:text-white transition-colors transition-transform duration-300 ease-out transform-gpu rotate-0 group-hover:-rotate-45">east</span>
+</span>
+</div>
+<div class="mt-4 pt-4 pb-2 border-t border-border-light">
+<p class="text-xs text-text-muted font-mono uppercase mb-1">Decision Narrative</p>
+<p class="text-sm text-slate-600 italic">"A high-performance digital portfolio designed for a video production professional."</p>
+</div>
+</div>
+</a>
+<a class="md:col-span-2 group relative bg-card-light rounded-xl overflow-hidden border border-border-light transition-all duration-500 shadow-sm hover:shadow-md reveal block" href="project Budget.html">
+<div class="overflow-hidden" style="height: 340px;">
+<img alt="Data Visualizer" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Mobile and Web screen of the SaaS Dascboard" src="Budget/Fin1.webp"/>
+</div>
+<div class="pt-6 px-6 pb-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="text-2xl font-bold mb-2 uppercase tracking-tight text-charcoal" style="color:#101622">Finance Planner</h4>
+<div class="flex gap-2">
+<span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">UX Research</span>
+<span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">UI Design</span>
+<span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">SaaS</span>
+<span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">Testing</span>
+</div>
+</div>
+<span class="w-12 h-12 rounded-full border border-border-light flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all bg-white">
+<span class="material-icons text-sm text-charcoal group-hover:text-white transition-colors transition-transform duration-300 ease-out transform-gpu rotate-0 group-hover:-rotate-45">east</span>
+</span>
+</div>
+<div class="mt-4 pt-4 pb-2 border-t border-border-light">
+<p class="text-xs text-text-muted font-mono uppercase mb-1">Decision Narrative</p>
+<p class="text-sm text-slate-600 italic">"Web service for financial planning and budgeting"</p>
+</div>
+</div>
+</a>
+<a class="md:col-span-3 group relative bg-card-light rounded-xl overflow-hidden border border-border-light transition-all duration-500 shadow-sm hover:shadow-md reveal block" href="project Svoji.html">
+<div class="overflow-hidden" style="height: 340px;">
+<img alt="Fintech Analytics Dashboard" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern minimalist SaaS dashboard interface with data visualizations" src="Swoji/1.webp"/>
+</div>
+<div class="pt-6 px-6 pb-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="text-2xl font-bold mb-2 uppercase tracking-tight text-charcoal">Digital Civic Ecosystem</h4>
+<div class="flex gap-2">
+<span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">Product Design</span>
+<span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">Frontend Dev</span>
+<span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">CMS</span>
+<span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">Webflow</span>
+<span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">Web compliance</span>
+<span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">Basic SEO</span>
+</div>
+</div>
+<span class="w-12 h-12 rounded-full border border-border-light flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all bg-white">
+<span class="material-icons text-sm text-charcoal group-hover:text-white transition-colors transition-transform duration-300 ease-out transform-gpu rotate-0 group-hover:-rotate-45">east</span>
+</span>
+</div>
+<div class="mt-4 pt-4 pb-2 border-t border-border-light">
+<p class="text-xs text-text-muted font-mono uppercase mb-1">Decision Narrative</p>
+<p class="text-sm text-slate-600 italic">"A scalable, multi-lingual platform combining robust CMS architecture with architectural minimalism to centralize events and organizations for the Ukrainian diaspora in Germany."</p>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 px-6 reveal" id="testimonials">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+<div>
+<h2 class="text-xs font-bold text-primary uppercase tracking-[0.3em] mb-4">Endorsements</h2>
+<h3 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-charcoal" style="color:#101622">Trust &amp; Collaboration</h3>
+</div>
+<p class="text-text-muted max-w-sm text-sm">Feedback from partners on the fusion of engineering logic and design aesthetics.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-stagger>
+<div class="group relative bg-card-light p-8 rounded-xl border border-border-light transition-all duration-500 flex flex-col justify-between shadow-sm hover:shadow-md reveal">
+<div>
+<span class="text-6xl text-primary/20 font-serif leading-none absolute top-4 left-6">“</span>
+<div class="relative z-10 pt-4 mb-6">
+<p class="text-slate-700 font-light text-lg leading-relaxed">
+                                    Yurii is a rare find. He doesn't just hand off designs; he understands the React component lifecycle which makes our dev handoff incredibly seamless.
+                                </p>
+</div>
+</div>
+<div class="flex items-center space-x-4 border-t border-border-light pt-6 mt-2">
+<div class="w-10 h-10 rounded-full bg-gray-200 border border-border-light flex items-center justify-center overflow-hidden text-charcoal">
+<span class="material-icons text-slate-500 text-sm">person</span>
+</div>
+<div>
+<p class="text-xs font-bold text-charcoal uppercase tracking-wider">Sebastian W.</p>
+<p class="text-[10px] font-mono text-text-muted uppercase">Videocreator</p>
+</div>
+</div>
+</div>
+<div class="group relative bg-card-light p-8 rounded-xl border border-border-light transition-all duration-500 flex flex-col justify-between shadow-sm hover:shadow-md reveal">
+<div>
+<span class="text-6xl text-primary/20 font-serif leading-none absolute top-4 left-6">“</span>
+<div class="relative z-10 pt-4 mb-6">
+<p class="text-slate-700 font-light text-lg leading-relaxed">
+                                    He bridges the gap perfectly. We needed a complex data visualization that was also accessible, and his code was as clean as his Figma files.
+                                </p>
+</div>
+</div>
+<div class="flex items-center space-x-4 border-t border-border-light pt-6 mt-2">
+<div class="w-10 h-10 rounded-full bg-gray-200 border border-border-light flex items-center justify-center overflow-hidden text-charcoal">
+<span class="material-icons text-slate-500 text-sm">verified</span>
+</div>
+<div>
+<p class="text-xs font-bold text-charcoal uppercase tracking-wider">Tetyana L.</p>
+<p class="text-[10px] font-mono text-text-muted uppercase">Product Owner at Svoji.de</p>
+</div>
+</div>
+</div>
+<div class="group relative bg-card-light p-8 rounded-xl border border-border-light transition-all duration-500 flex flex-col justify-between shadow-sm hover:shadow-md reveal">
+<div>
+<span class="text-6xl text-primary/20 font-serif leading-none absolute top-4 left-6">“</span>
+<div class="relative z-10 pt-4 mb-6">
+<p class="text-slate-700 font-light text-lg leading-relaxed">
+                                    Working with Yurii changed how we view design engineers. The attention to detail in the micro-interactions he coded brought our brand to life.
+                                </p>
+</div>
+</div>
+<div class="flex items-center space-x-4 border-t border-border-light pt-6 mt-2">
+<div class="w-10 h-10 rounded-full bg-gray-200 border border-border-light flex items-center justify-center overflow-hidden text-charcoal">
+<span class="material-icons text-slate-500 text-sm">person</span>
+</div>
+<div>
+<p class="text-xs font-bold text-charcoal uppercase tracking-wider">Elena Rossi</p>
+<p class="text-[10px] font-mono text-text-muted uppercase">Founder @ Studio X</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<section class="text-white rounded-xl py-32 px-6 text-center overflow-hidden relative" id="contact" style="background-color:#101622">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute top-0 left-0 w-full h-full border-[20px] border-primary/20 rotate-12 scale-150"></div>
+</div>
+<h3 class="text-4xl md:text-6xl font-black mb-8 tracking-tighter">LET'S BUILD<br/>TOGETHER.</h3>
+<p class="max-w-xl mx-auto mb-12 text-white/80">Reach out for a chat about your next venture.</p>
+<a class="inline-block px-12 py-5 bg-primary text-white font-bold rounded-full hover:scale-105 hover:brightness-110 transition-all duration-500 ease-out smooth" href="mailto:yurii.lavuta@gmail.com">
+                    Get in touch
+                </a>
+
+<div class="mt-10 flex items-center justify-center gap-6">
+<a class="inline-flex items-center justify-center w-12 h-12 rounded-full border border-white/15 bg-white/5 text-white/80 hover:text-white hover:bg-white/10 transition-all duration-300" href="https://www.linkedin.com/in/yurii-lavuta-2249a11b7" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+<path d="M4.98 3.5a2.5 2.5 0 1 1-.02 5 2.5 2.5 0 0 1 .02-5ZM3 8.98h3.96V21H3V8.98ZM9.34 8.98H13v1.64h.05c.51-.97 1.76-2 3.62-2 3.87 0 4.58 2.55 4.58 5.87V21h-3.96v-5.58c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95V21H9.34V8.98Z"/>
+</svg>
+</a>
+
+<a class="inline-flex items-center justify-center w-12 h-12 rounded-full border border-white/15 bg-white/5 text-white/80 hover:text-white hover:bg-white/10 transition-all duration-300" href="https://t.me/YuriiLvt" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+<path d="M21.9 4.6c.2.2.2.6.1 1l-3 14.2c-.1.5-.5.9-1 1-.4.1-.9 0-1.2-.3l-4.7-3.5-2.6 2.5c-.2.2-.4.3-.7.3-.1 0-.2 0-.3 0-.4-.1-.7-.5-.7-.9v-4.2l-4.3-1.7c-.4-.2-.7-.6-.7-1 0-.4.2-.9.6-1.1L20.4 4c.5-.2 1.1-.1 1.5.3ZM9 13.9v3l1.7-1.7c.3-.3.8-.3 1.1 0l4.4 3.3L18.9 6.8 6.2 11.8l3.3 1.3 8.6-5.3-7.8 6.1c-.2.2-.3.4-.3.7Z"/>
+</svg>
+</a>
+
+<a class="inline-flex items-center justify-center w-12 h-12 rounded-full border border-white/15 bg-white/5 text-white/80 hover:text-white hover:bg-white/10 transition-all duration-300" href="https://wa.me/4916091490240" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+<path d="M12 2a9.9 9.9 0 0 0-8.53 14.96L2 22l5.2-1.36A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.14l-.3-.18-3.09.8.83-3.01-.2-.31A8 8 0 1 1 12 20Zm4.64-5.12c-.25-.13-1.48-.73-1.71-.81-.23-.08-.4-.13-.57.13-.17.25-.65.81-.8.98-.15.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.15-.25-.02-.39.11-.52.12-.12.25-.29.37-.44.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.57-1.38-.78-1.89-.2-.48-.4-.41-.57-.41h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.09s.9 2.42 1.02 2.59c.12.17 1.78 2.72 4.31 3.81.6.26 1.06.41 1.42.53.6.19 1.15.16 1.58.1.48-.07 1.48-.6 1.69-1.19.21-.58.21-1.08.15-1.19-.06-.11-.23-.17-.48-.29Z"/>
+</svg>
+</a>
+</div>
+</section>
+<footer class="py-12 border-t border-border-light px-6 bg-white">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start">
+<span class="text-[10px] font-bold text-slate-900 uppercase tracking-widest mb-2">© 2025 Yurii Lavuta. All rights reserved.</span>
+</div>
+<div class="flex items-center space-x-8">
+<a class="text-[10px] font-bold text-slate-500 hover:text-primary uppercase tracking-widest transition-colors" href="impressum.html">Legal Notice / Impressum</a>
+<a class="text-[10px] font-bold text-slate-500 hover:text-primary uppercase tracking-widest transition-colors" href="privacy-policy.html">Privacy Policy / Datenschutzerklärung</a>
+</div>
+</div>
+</footer>
+
+<script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuButton && mobileMenu) {
+        const icon = mobileMenuButton.querySelector('.material-icons');
+        const firstMenuLink = mobileMenu.querySelector('a');
+        let lastActiveElement = null;
+
+        function setMenuState(isOpen) {
+            mobileMenu.classList.toggle('is-open', isOpen);
+            mobileMenuButton.classList.toggle('is-open', isOpen);
+            mobileMenuButton.setAttribute('aria-expanded', String(isOpen));
+            mobileMenuButton.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+            if (icon) icon.textContent = isOpen ? 'close' : 'menu';
+
+            if (isOpen) {
+                lastActiveElement = document.activeElement;
+                if (firstMenuLink) {
+                    window.setTimeout(() => firstMenuLink.focus(), 0);
+                }
+            } else if (lastActiveElement && typeof lastActiveElement.focus === 'function') {
+                window.setTimeout(() => lastActiveElement.focus(), 0);
+                lastActiveElement = null;
+            }
+        }
+
+        mobileMenuButton.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('is-open');
+            setMenuState(isOpen);
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => setMenuState(false));
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.classList.contains('is-open')) return;
+            const target = e.target;
+            if (!target) return;
+            if (mobileMenu.contains(target) || mobileMenuButton.contains(target)) return;
+            setMenuState(false);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!mobileMenu.classList.contains('is-open')) return;
+            if (e.key !== 'Escape') return;
+            setMenuState(false);
+        });
+    }
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion) {
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (!targetId || targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (!targetElement) return;
+
+                e.preventDefault();
+
+                const headerOffset = 96;
+                const targetPos = targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+                const startPos = window.pageYOffset;
+                const dist = targetPos - startPos;
+                const duration = 1200;
+                let start = null;
+
+                function easeInOutCubic(t) {
+                    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+                }
+
+                function anim(time) {
+                    if (start === null) start = time;
+                    const elapsed = time - start;
+                    const progress = Math.min(1, elapsed / duration);
+                    const eased = easeInOutCubic(progress);
+                    window.scrollTo(0, startPos + dist * eased);
+                    if (elapsed < duration) requestAnimationFrame(anim);
+                }
+
+                requestAnimationFrame(anim);
+            });
+        });
+    }
+
+    if (!prefersReducedMotion) {
+        const revealObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('in-view');
+                    revealObserver.unobserve(entry.target);
+                });
+            },
+            { threshold: 0.12, rootMargin: '0px 0px -10% 0px' }
+        );
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            const staggerParent = el.parentElement && el.parentElement.hasAttribute('data-stagger')
+                ? el.parentElement
+                : null;
+
+            if (staggerParent) {
+                const siblings = Array.from(staggerParent.children).filter((c) => c.classList && c.classList.contains('reveal'));
+                const index = Math.max(0, siblings.indexOf(el));
+                el.style.transitionDelay = `${index * 140}ms`;
+            }
+
+            revealObserver.observe(el);
+        });
+    } else {
+        document.querySelectorAll('.reveal').forEach((el) => el.classList.add('in-view'));
+    }
+</script>
+
+</body></html>

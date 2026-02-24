@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Impressum | Yurii Lavuta</title>
+<link href="assets/css/styles.css" rel="stylesheet"/>
+<style>
+        html {
+            scroll-behavior: auto;
+            scroll-padding-top: 96px;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        :root {
+            --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+            --ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+
+        .mobile-menu {
+            max-height: 0;
+            opacity: 0;
+            transform: translateY(-12px);
+            overflow: hidden;
+            pointer-events: none;
+            transition:
+                max-height 680ms var(--ease-out-expo),
+                opacity 360ms var(--ease-out-circ),
+                transform 680ms var(--ease-out-expo);
+            will-change: max-height, opacity, transform;
+        }
+
+        .mobile-menu.is-open {
+            max-height: 520px;
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .menu-button {
+            background: transparent;
+            border: none;
+            border-radius: 9999px;
+            transition: transform 520ms var(--ease-out-expo);
+        }
+
+        .menu-icon {
+            display: inline-block;
+            transition: transform 520ms var(--ease-out-expo);
+            will-change: transform;
+        }
+
+        .menu-button.is-open .menu-icon {
+            transform: rotate(180deg);
+        }
+
+        .skip-link {
+            position: absolute;
+            left: 12px;
+            top: 12px;
+            padding: 10px 14px;
+            background: #ffffff;
+            color: #101622;
+            border: 2px solid #135bec;
+            border-radius: 12px;
+            transform: translateY(-160%);
+            transition: transform 160ms ease;
+            z-index: 1000;
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid #135bec;
+            outline-offset: 3px;
+        }
+    </style>
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="76540eaf-4e45-4862-b554-06d0047e3671" data-blockingmode="auto" type="text/javascript"></script>
+</head>
+<body class="bg-background text-charcoal font-display transition-colors duration-300">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<nav class="fixed top-0 w-full z-50 border-b border-border-light bg-background/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<a class="flex items-center space-x-2" href="index.html">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center font-bold text-white">YL</div>
+<span class="font-bold tracking-tighter text-xl uppercase hidden sm:block text-charcoal">Yurii Lavuta</span>
+</a>
+<div class="flex items-center space-x-8 text-sm font-medium uppercase tracking-widest text-charcoal hidden md:flex">
+<a class="hover:text-primary transition-colors" href="index.html">Main</a>
+<a class="hover:text-primary transition-colors" href="index.html#work">Portfolio</a>
+<a class="hover:text-primary transition-colors" href="About.html">About</a>
+<a class="hover:text-primary transition-colors" href="index.html#contact">Contact</a>
+</div>
+</div>
+<button id="mobile-menu-button" class="menu-button md:hidden flex items-center justify-center w-12 h-12 hover:bg-gray-50 transition-colors" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+<span class="material-icons menu-icon text-charcoal text-3xl">menu</span>
+</button>
+</div>
+</nav>
+
+<div id="mobile-menu" class="mobile-menu md:hidden absolute top-20 left-0 right-0 bg-background border-b border-border-light">
+<div class="max-w-7xl mx-auto px-6 py-6 space-y-4">
+<a class="block py-3 text-sm font-medium uppercase tracking-widest text-charcoal hover:text-primary transition-colors border-b border-border-light" href="index.html">Main</a>
+<a class="block py-3 text-sm font-medium uppercase tracking-widest text-charcoal hover:text-primary transition-colors border-b border-border-light" href="index.html#work">Portfolio</a>
+<a class="block py-3 text-sm font-medium uppercase tracking-widest text-charcoal hover:text-primary transition-colors border-b border-border-light" href="About.html">About</a>
+<a class="block py-3 text-sm font-medium uppercase tracking-widest text-charcoal hover:text-primary transition-colors" href="index.html#contact">Contact</a>
+</div>
+</div>
+
+<main class="pt-20" id="main-content" tabindex="-1">
+<section class="py-32 px-6">
+<div class="max-w-3xl mx-auto">
+<h2 class="text-xs font-bold text-primary uppercase tracking-[0.3em] mb-4">Legal</h2>
+<h1 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-charcoal mb-12">Impressum</h1>
+
+<div class="space-y-10">
+<div class="bg-card-light border border-border-light p-8 rounded-xl">
+<p class="text-sm text-text-muted leading-7">Yurii Lavuta<br/>
+Steinstra&szlig;e 39B<br/>
+12307 Berlin</p>
+
+<h2 class="text-lg font-bold uppercase tracking-tight mt-8 mb-4">Kontakt</h2>
+<p class="text-sm text-text-muted leading-7">Telefon: +49 160 91490240<br/>
+E-Mail: yurii.lavuta@gmail.com</p>
+
+<p class="text-sm text-text-muted leading-7 mt-8">Quelle: <a href="https://www.e-recht24.de">eRecht24</a></p>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="py-12 border-t border-border-light px-6 bg-white">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start">
+<span class="text-[10px] font-bold text-slate-900 uppercase tracking-widest mb-2">© 2025 Yurii Lavuta. All rights reserved.</span>
+</div>
+<div class="flex items-center space-x-8">
+<a class="text-[10px] font-bold text-slate-500 hover:text-primary uppercase tracking-widest transition-colors" href="impressum.html">Legal Notice / Impressum</a>
+<a class="text-[10px] font-bold text-slate-500 hover:text-primary uppercase tracking-widest transition-colors" href="privacy-policy.html">Privacy Policy / Datenschutzerklärung</a>
+</div>
+</div>
+</footer>
+
+<script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuButton && mobileMenu) {
+        const icon = mobileMenuButton.querySelector('.material-icons');
+        const firstMenuLink = mobileMenu.querySelector('a');
+        let lastActiveElement = null;
+
+        function setMenuState(isOpen) {
+            mobileMenu.classList.toggle('is-open', isOpen);
+            mobileMenuButton.classList.toggle('is-open', isOpen);
+            mobileMenuButton.setAttribute('aria-expanded', String(isOpen));
+            mobileMenuButton.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+            if (icon) icon.textContent = isOpen ? 'close' : 'menu';
+
+            if (isOpen) {
+                lastActiveElement = document.activeElement;
+                if (firstMenuLink) {
+                    window.setTimeout(() => firstMenuLink.focus(), 0);
+                }
+            } else if (lastActiveElement && typeof lastActiveElement.focus === 'function') {
+                window.setTimeout(() => lastActiveElement.focus(), 0);
+                lastActiveElement = null;
+            }
+        }
+
+        mobileMenuButton.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('is-open');
+            setMenuState(isOpen);
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => setMenuState(false));
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.classList.contains('is-open')) return;
+            const target = e.target;
+            if (!target) return;
+            if (mobileMenu.contains(target) || mobileMenuButton.contains(target)) return;
+            setMenuState(false);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!mobileMenu.classList.contains('is-open')) return;
+            if (e.key !== 'Escape') return;
+            setMenuState(false);
+        });
+    }
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion) {
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (!targetId || targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (!targetElement) return;
+
+                e.preventDefault();
+
+                const headerOffset = 96;
+                const targetPos = targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+                const startPos = window.pageYOffset;
+                const dist = targetPos - startPos;
+                const duration = 1200;
+                let start = null;
+
+                function easeInOutCubic(t) {
+                    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+                }
+
+                function anim(time) {
+                    if (start === null) start = time;
+                    const elapsed = time - start;
+                    const progress = Math.min(1, elapsed / duration);
+                    const eased = easeInOutCubic(progress);
+                    window.scrollTo(0, startPos + dist * eased);
+                    if (elapsed < duration) requestAnimationFrame(anim);
+                }
+
+                requestAnimationFrame(anim);
+            });
+        });
+    }
+</script>
+</body></html>
