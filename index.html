@@ -123,6 +123,27 @@
             transition: transform 0.1s linear;
         }
 
+        /* --- CUSTOM FIX FOR HERO BUTTONS --- */
+        .hero-btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .hero-btn {
+            width: 100%;
+            text-align: center;
+        }
+        @media (min-width: 768px) {
+            .hero-btn-container {
+                flex-direction: row;
+                justify-content: flex-end;
+            }
+            .hero-btn {
+                width: auto;
+            }
+        }
+        /* ----------------------------------- */
+
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
@@ -181,11 +202,11 @@
 <p class="md:col-span-6 text-xl text-text-muted font-light leading-relaxed">
                         Bridging the gap between design and development with precision and AI-enhanced workflows. Creating digital experiences that are technically sound and visually compelling.
                     </p>
-<div class="md:col-span-6 flex flex-wrap gap-4 md:justify-end">
-<a class="px-8 py-4 bg-primary text-white font-bold rounded-lg hover:brightness-110 transition-all uppercase tracking-widest text-sm" href="#work">
+<div class="md:col-span-6 hero-btn-container">
+<a class="hero-btn px-8 py-4 bg-primary text-white font-bold rounded-lg hover:brightness-110 transition-all uppercase tracking-widest text-sm" href="#work">
                             View Selected Work
                         </a>
-<a class="px-8 py-4 border border-border-light bg-white text-charcoal font-bold rounded-lg hover:bg-gray-50 transition-all uppercase tracking-widest text-sm" href="#contact">
+<a class="hero-btn px-8 py-4 border border-border-light bg-white text-charcoal font-bold rounded-lg hover:bg-gray-50 transition-all uppercase tracking-widest text-sm" href="#contact">
                             Contact Me
                         </a>
 </div>
@@ -229,17 +250,17 @@
 <img alt="SaaS Dashboard" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern minimalist SaaS dashboard interface with data visualizations" src="ClaroAds/Claro_vireframes.webp"/>
 </div>
 <div class="pt-6 px-6 pb-6">
-<div class="flex justify-between items-start mb-4">
-<div>
-<h4 class="text-2xl font-bold mb-2 uppercase tracking-tight text-charcoal" style="color:#101622">SaaS AdTech platform</h4>
-<div class="flex gap-2">
+<div class="flex justify-between items-start mb-4 gap-4">
+<div class="flex-1 min-w-0">
+<h4 class="text-2xl font-bold mb-2 uppercase tracking-tight text-charcoal break-words" style="color:#101622">SaaS AdTech platform</h4>
+<div class="flex flex-wrap gap-2">
 <span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">UIUX Design</span>
 <span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">UX Research</span>
 <span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">UX Writing</span>
 <span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">SaaS</span>
 </div>
 </div>
-<span class="w-12 h-12 rounded-full border border-border-light flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all bg-white">
+<span class="flex-shrink-0 w-12 h-12 rounded-full border border-border-light flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all bg-white">
 <span class="material-icons text-sm text-charcoal group-hover:text-white transition-colors transition-transform duration-300 ease-out transform-gpu rotate-0 group-hover:-rotate-45">east</span>
 </span>
 </div>
@@ -254,16 +275,16 @@
 <img alt="Brand Identity" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern Video Creator Portfolio" src="Sebastian/Sebastian2.webp"/>
 </div>
 <div class="pt-6 px-6 pb-6">
-<div class="flex justify-between items-start mb-4">
-<div>
-<h4 class="text-2xl font-bold mb-2 uppercase tracking-tight text-charcoal" style="color:#101622">Video Creator Portfolio</h4>
-<div class="flex gap-2">
+<div class="flex justify-between items-start mb-4 gap-4">
+<div class="flex-1 min-w-0">
+<h4 class="text-2xl font-bold mb-2 uppercase tracking-tight text-charcoal break-words" style="color:#101622">Video Creator Portfolio</h4>
+<div class="flex flex-wrap gap-2">
 <span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">HTML/CSS/JS</span>
 <span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">UI Design</span>
 <span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">Web compliance</span>
 </div>
 </div>
-<span class="w-12 h-12 rounded-full border border-border-light flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all bg-white">
+<span class="flex-shrink-0 w-12 h-12 rounded-full border border-border-light flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all bg-white">
 <span class="material-icons text-sm text-charcoal group-hover:text-white transition-colors transition-transform duration-300 ease-out transform-gpu rotate-0 group-hover:-rotate-45">east</span>
 </span>
 </div>
@@ -278,17 +299,17 @@
 <img alt="Data Visualizer" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Mobile and Web screen of the SaaS Dascboard" src="Budget/Fin1.webp"/>
 </div>
 <div class="pt-6 px-6 pb-6">
-<div class="flex justify-between items-start mb-4">
-<div>
-<h4 class="text-2xl font-bold mb-2 uppercase tracking-tight text-charcoal" style="color:#101622">Finance Planner</h4>
-<div class="flex gap-2">
+<div class="flex justify-between items-start mb-4 gap-4">
+<div class="flex-1 min-w-0">
+<h4 class="text-2xl font-bold mb-2 uppercase tracking-tight text-charcoal break-words" style="color:#101622">Finance Planner</h4>
+<div class="flex flex-wrap gap-2">
 <span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">UX Research</span>
 <span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">UI Design</span>
 <span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">SaaS</span>
 <span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">Testing</span>
 </div>
 </div>
-<span class="w-12 h-12 rounded-full border border-border-light flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all bg-white">
+<span class="flex-shrink-0 w-12 h-12 rounded-full border border-border-light flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all bg-white">
 <span class="material-icons text-sm text-charcoal group-hover:text-white transition-colors transition-transform duration-300 ease-out transform-gpu rotate-0 group-hover:-rotate-45">east</span>
 </span>
 </div>
@@ -303,10 +324,10 @@
 <img alt="Fintech Analytics Dashboard" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern minimalist SaaS dashboard interface with data visualizations" src="Swoji/1.webp"/>
 </div>
 <div class="pt-6 px-6 pb-6">
-<div class="flex justify-between items-start mb-4">
-<div>
-<h4 class="text-2xl font-bold mb-2 uppercase tracking-tight text-charcoal">Digital Civic Ecosystem</h4>
-<div class="flex gap-2">
+<div class="flex justify-between items-start mb-4 gap-4">
+<div class="flex-1 min-w-0">
+<h4 class="text-2xl font-bold mb-2 uppercase tracking-tight text-charcoal break-words">Digital Civic Ecosystem</h4>
+<div class="flex flex-wrap gap-2">
 <span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">Product Design</span>
 <span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">Frontend Dev</span>
 <span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">CMS</span>
@@ -315,7 +336,7 @@
 <span class="text-[10px] px-2 py-1 rounded bg-white border border-border-light uppercase text-text-muted font-medium">Basic SEO</span>
 </div>
 </div>
-<span class="w-12 h-12 rounded-full border border-border-light flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all bg-white">
+<span class="flex-shrink-0 w-12 h-12 rounded-full border border-border-light flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all bg-white">
 <span class="material-icons text-sm text-charcoal group-hover:text-white transition-colors transition-transform duration-300 ease-out transform-gpu rotate-0 group-hover:-rotate-45">east</span>
 </span>
 </div>
